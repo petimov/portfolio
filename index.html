@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <nav>
         <a href="#">P</a>
@@ -14,6 +22,47 @@
             <li><a href="#">o mě</a></li>
             <li><a href="#">kontakt</a></li>
         </ul>
+        <span class="menu-btn">☰</span>
     </nav>
+    <main class="about">
+        <h3>About me</h3>
+        <div class="content">
+            <div class="left">
+                <h1>Hi, I'm <br><span>Petr</span></h1>
+                <ul>
+                    <li>
+                        <i data-lucide="map-pin"></i>
+                        Based in Pardubice, Czechia
+                    </li>
+                    <li>
+                        <i data-lucide="braces"></i>
+                        21 years old
+                    </li>
+                    <li>
+                        <i data-lucide="braces"></i>
+                        Front End Dev
+                    </li>
+                </ul>
+                <p>As a dedicated developer based in the heart of Bavaria, I bring German precision and creative
+                    innovation to every project. I specialize in creating robust, scalable web applications that combine
+                    cutting-edge technology with intuitive user experiences.</p>
+            </div>
+            <div class=" right">
+                <h2>Key Skills</h2>
+                <div class="skills">
+                    <ul>
+                        <li>Javascript</li>
+                        <li>CSS</li>
+                        <li>HTML</li>
+                        <li>React</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
 </body>
+
 </html>

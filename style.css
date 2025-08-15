@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+body {
+    background-color: #0f0f0f;
+    color: aliceblue;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+svg {
+    color: #00B4FF;
+    width: 1.3em;
+}
+
+nav {
+    background-color: #0f0f0f;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5% 8%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul a {
+    padding: 4px 8px;
+    font-size: .875rem;
+    text-transform: uppercase;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        inset: 0;
+        padding: 1rem;
+        background-color: aliceblue;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+.about {
+    padding: 0 20%;
+}
+
+.about h3 {
+    color: #fafafa99;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.about .content {
+    display: flex;
+    gap: 100px;
+}
+
+.about .content div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about div:first-of-type ul {
+    list-style: none;
+    color: #fafafa99;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about h1 {
+    font-size: 3rem;
+}
+
+.about h1 span {
+    color: #00B4FF;
+}
+
+.about p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
