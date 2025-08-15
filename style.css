@@ -6,8 +6,38 @@
 }
 
 body {
-    background-color: #0f0f0f;
-    color: aliceblue;
+    background: var(--bg);
+    color: var(--fg);
+    transition: all 0.3s;
+}
+
+:root {
+    --bg: #0f0f0f;
+    --fg: #fff;
+    --nav-bg: rgba(15, 15, 15, 0.9);
+    --subtext: #fafafa99;
+    --shade: rgba(20, 18, 18, 0.9);
+}
+
+[data-theme="light"] {
+    --bg: aliceblue;
+    --fg: #0f0f0f;
+    --nav-bg: rgba(240, 248, 255, 0.9);
+    --subtext: #0f0f0f;
+    --shade: rgba(238, 246, 248, 0.9);
+}
+
+
+#theme {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#theme:hover {
+    transform: scale(1.1);
 }
 
 p {
@@ -29,7 +59,7 @@ ul {
 }
 
 nav {
-    background-color: rgba(15, 15, 15, 0.9);
+    background-color: var(--nav-bg);
     display: flex;
     justify-content: space-between;
     padding: 1.5% 8%;
@@ -44,6 +74,7 @@ nav {
 
 nav ul {
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 
@@ -67,7 +98,7 @@ nav ul a {
         position: absolute;
         inset: 0;
         padding: 1rem;
-        background-color: aliceblue;
+        background-color: var(--bg);
         text-align: center;
         font-size: 40px;
     }
@@ -91,7 +122,7 @@ nav ul a {
 }
 
 .about h3 {
-    color: #fafafa99;
+    color: var(--subtext);
     text-transform: uppercase;
     font-size: .8rem;
     font-weight: 500;
@@ -111,19 +142,19 @@ nav ul a {
 }
 
 .about ul {
-    color: #fafafa99;
+    color: var(--subtext);
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .about .content>div:last-of-type ul {
-    color: aliceblue;
+    color: var(--fg);
     flex-direction: row;
 }
 
 .about .content>div:last-of-type li {
-    background-color: #0A0A12;
+    background-color: var(--shade);
     padding: 10px 12px;
     border-radius: 22px;
 }
@@ -153,7 +184,7 @@ nav ul a {
 }
 
 .projects span {
-    color: #fafafa99;
+    color: var(--subtext);
     text-transform: uppercase;
 }
 
@@ -221,11 +252,11 @@ nav ul a {
 }
 
 .project p {
-    color: #fafafa99;
+    color: var(--subtext);
 }
 
 .project li {
-    background-color: #0A0A12;
+    background-color: var(--bg);
     padding: 10px 12px;
     border-radius: 22px;
 }
