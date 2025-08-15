@@ -12,7 +12,6 @@ body {
 
 p {
     line-height: 1.6;
-    color: ;
 }
 
 a {
@@ -30,10 +29,17 @@ ul {
 }
 
 nav {
-    background-color: #0f0f0f;
+    background-color: rgba(15, 15, 15, 0.9);
     display: flex;
     justify-content: space-between;
     padding: 1.5% 8%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(6px) saturate(180%);
+    -webkit-backdrop-filter: blur(6px) saturate(180%);
+    background-blend-mode: overlay;
 }
 
 nav ul {
@@ -78,6 +84,10 @@ nav ul a {
 .about {
     padding: 0 20%;
     margin-bottom: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .about h3 {
@@ -171,9 +181,9 @@ nav ul a {
 }
 
 .projects>div {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
 }
 
 .projects h6 {
@@ -188,13 +198,17 @@ nav ul a {
     background-image: url('/assets/avantyra.png');
     background-position: top;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    grid-column: span 2;
 }
 
 .project a:hover {
     transform: scale(1.06);
-    background-size: 104%;
+    background-size: 104% 104%;
 }
 
 .project {
