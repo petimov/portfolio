@@ -20,6 +20,10 @@ svg {
     width: 1.3em;
 }
 
+ul {
+    list-style: none;
+}
+
 nav {
     background-color: #0f0f0f;
     display: flex;
@@ -28,7 +32,6 @@ nav {
 }
 
 nav ul {
-    list-style: none;
     display: flex;
     gap: 2rem;
 }
@@ -69,6 +72,7 @@ nav ul a {
 
 .about {
     padding: 0 20%;
+    margin-bottom: 200px;
 }
 
 .about h3 {
@@ -92,7 +96,6 @@ nav ul a {
 }
 
 .about ul {
-    list-style: none;
     color: #fafafa99;
     display: flex;
     flex-direction: column;
@@ -127,4 +130,48 @@ nav ul a {
 .about p {
     font-size: 1.15rem;
     line-height: 1.6;
+}
+
+.projects {
+    padding: 0 12%;
+    margin-bottom: 200px;
+}
+
+.projects span {
+    color: #fafafa99;
+    text-transform: uppercase;
+}
+
+.project button {
+    border: none;
+}
+
+.projects>div {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.projects h6 {
+    font-size: 2rem;
+    font-style: italic;
+}
+
+.projects img {
+    width: 600px;
+}
+
+.project {
+    margin-top: 30px;
+}
+
+.project ul {
+    display: flex;
+    gap: 30px;
+}
+
+.project li {
+    background-color: #0A0A12;
+    padding: 10px 12px;
+    border-radius: 22px;
 }
