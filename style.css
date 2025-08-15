@@ -91,12 +91,23 @@ nav ul a {
     gap: 30px;
 }
 
-.about div:first-of-type ul {
+.about ul {
     list-style: none;
     color: #fafafa99;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.about .content>div:last-of-type ul {
+    color: aliceblue;
+    flex-direction: row;
+}
+
+.about .content>div:last-of-type li {
+    background-color: #0A0A12;
+    padding: 10px 12px;
+    border-radius: 22px;
 }
 
 .about li {
