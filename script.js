@@ -72,3 +72,19 @@ navItems.forEach(item => {
   });
 });
 
+
+window.onscroll = function () { ScrollIndicator() };
+
+function ScrollIndicator() {
+  var winScroll = window.scrollY || window.pageYOffset;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  if (winScroll) {
+    document.querySelector("#progress-bar").style.opacity = 1;
+  } else {
+    document.querySelector("#progress-bar").style.opacity = 0;
+  }
+
+  document.querySelector('#progress-bar div.scrollNumber').innerHTML = Math.round(scrolled)
+  document.querySelector('#progress-bar div.progress').style.height = scrolled + '%';
+}
