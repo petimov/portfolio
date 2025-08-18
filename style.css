@@ -5,6 +5,12 @@
     font-family: 'Montserrat';
 }
 
+body,
+html {
+    scroll-behavior: unset !important;
+    overscroll-behavior-y: none !important;
+}
+
 body {
     background: var(--bg);
     color: var(--fg);
