@@ -88,3 +88,5 @@ function ScrollIndicator() {
   document.querySelector('#progress-bar div.scrollNumber').innerHTML = Math.round(scrolled)
   document.querySelector('#progress-bar div.progress').style.height = scrolled + '%';
 }
+
+

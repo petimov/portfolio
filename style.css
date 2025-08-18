@@ -338,3 +338,18 @@ nav ul a {
     flex-direction: column;
     gap: 30px;
 }
+
+footer {
+    padding: 4%;
+    display: flex;
+    gap: 20px;
+}
+
+footer svg {
+    color: var(--fg);
+    transition: .3s ease;
+}
+
+footer svg:hover {
+    color: #00B4FF;
+}
