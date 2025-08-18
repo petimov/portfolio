@@ -89,4 +89,55 @@ function ScrollIndicator() {
   document.querySelector('#progress-bar div.progress').style.height = scrolled + '%';
 }
 
+// Follow the cursor
 
+const cursor = document.querySelector('.cursor');
+const follower = document.querySelector('.cursor-follower');
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let cursorX = mouseX;
+let cursorY = mouseY;
+let followerX = mouseX;
+let followerY = mouseY;
+
+// Smoothing factors (lower = smoother but slower)
+const cursorSpeed = 0.1;
+const followerSpeed = 0.5;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Main cursor (faster follow)
+  cursorX += (mouseX - cursorX) * cursorSpeed;
+  cursorY += (mouseY - cursorY) * cursorSpeed;
+
+  // Follower (slower, delayed follow)
+  followerX += (cursorX - followerX) * followerSpeed;
+  followerY += (cursorY - followerY) * followerSpeed;
+
+  // Apply positions
+  cursor.style.left = `${cursorX}px`;
+  cursor.style.top = `${cursorY}px`;
+
+  follower.style.left = `${followerX}px`;
+  follower.style.top = `${followerY}px`;
+}
+
+animate();
+
+// Click effects
+document.addEventListener('mousedown', () => {
+  cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
+  follower.style.transform = 'translate(-50%, -50%) scale(1.3)';
+});
+
+document.addEventListener('mouseup', () => {
+  cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+  follower.style.transform = 'translate(-50%, -50%) scale(1)';
+});
