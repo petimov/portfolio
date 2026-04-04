@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projekt BeFit - Petr Movsesjan</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <!-- GSAP + BARBA -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/@barba/core"></script>
+</head>
+
+<body data-barba="wrapper">
+
+  <header class="c-site-header o-container">
+
+  <a class="c-site-header__brand" href="/" data-barba="link" data-pointer="home" aria-label="Home">
+    <h1 class="logo">Petr&nbsp;Movsesjan</h1>
+  </a>
+
+  <a href="/o-mne.html" class="nav-link" data-barba="link">
+  <span class="nav-text">O mně</span>
+</a>
+</header>
+
+  <canvas id="gradient-canvas"></canvas>
+
+  <main data-barba="container" data-barba-namespace="befit">
+
+    <!-- HERO (navazuje na kartu) -->
+    <section class="project-hero">
+      <img src="/images/befit_layout.jpg" class="project-hero__img" data-shared="media" />
+
+      <div class="project-hero__overlay" data-shared="content">
+        <p class="project-label">Webová aplikace</p>
+
+        <h1 class="project-title">
+          BeFit <em>kavárna</em> a posilovna
+        </h1>
+
+        <p class="project-desc">
+          Interaktivní fitness a café web s rezervačním systémem a moderním UX
+        </p>
+      </div>
+    </section>
+
+   <section class="project-content">
+
+  <div class="project-content__inner">
+
+    <p class="project-label">Case study</p>
+
+    <h2 class="project-title">
+      O <em>projektu</em>
+    </h2>
+
+    <div class="project-text">
+      <p>
+        Kompletní návrh a vývoj webové aplikace pro fitness centrum s kavárnou.
+        Projekt zahrnuje správu lekcí, přehledný rozvrh, rezervační systém
+        a moderní vizuální identitu.
+      </p>
+
+      <p>
+        Důraz byl kladen na UX, rychlost a mobilní použitelnost.
+        Backend je připraven pro další rozšíření — uživatelé, rezervace i admin rozhraní.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+  </main>
+
+
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>

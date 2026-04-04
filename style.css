@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/Thesead.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#gradient-canvas {
+  position: fixed;
+  inset: 0;
+  opacity: 0.25;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  --gradient-color-1: #ffffff; 
+  --gradient-color-2: #f9f5ee; 
+  --gradient-color-3: #efe3c8;  
+  --gradient-color-4: #c6a46a;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #f4efe6;
+  font-family: Montserrat, sans-serif;
+  color: #C6A46A;
+  scrollbar-gutter: stable;
+}
+
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+body.is-home {
+  overflow: hidden;
+}
+
+/* CONTAINER */
+.c-cards {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* WRAPPER */
+.c-cards__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* CARD BASE */
+.c-cards__card {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 60vw;
+  height: 70vh;
+
+  transform: translate(-50%, 50%);
+
+   border: 1.5px solid #c6a46a;
+  background: #f7f2ea;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255, 215, 120, 0.15),
+    0 0 20px rgba(212,175,55,0.15);
+
+    will-change: transform, opacity;
+  transform: translate3d(0,0,0);
+}
+
+/* IMAGE */
+.c-cards__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter:
+    brightness(0.85)
+    contrast(0.95)
+    saturate(0.9);
+}
+
+/* TEXT */
+.c-cards__content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #f8f5ef;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* DUMMY */
+.c-cards__card--dummy {
+  visibility: hidden;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+.card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
+.card-label {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 20px;
+  color: #e6dccb;
+}
+
+.card-title {
+  font-size: clamp(32px, 6vw, 80px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.card-title em {
+  font-style: italic;
+  font-family: "Outfit", sans-serif;
+  font-weight: 400;
+}
+
+.card-desc {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.7;
+  color: #d6cbb5;
+}
+
+.is-transitioning {
+  overflow: hidden;
+}
+
+.project-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BEFIT PAGE
+
+/* HERO */
+
+.project-hero {
+  position: relative;
+    width: 80vw;
+  height: 70vh;
+  overflow: hidden;
+  margin: 100px auto 0 auto;
+  border-radius: 20px;
+  z-index: 1;
+  will-change: transform;
+}
+
+.project-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-hero__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: white;
+  text-align: center;
+}
+
+.project-title {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(40px, 6vw, 90px);
+  font-weight: 500;
+}
+
+.project-title em {
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+}
+
+.project-label {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.project-desc {
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+/* CONTENT */
+
+.project-content {
+  padding: 120px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-content h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.project-content p {
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* HEADER */
+
+.c-site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10001;
+  color: black;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 40px;
+  pointer-events: auto;
+}
+
+
+.c-site-header__menu-toggle,
+.c-site-header__contact {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ABOUT ME */
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about {
+  padding-top: 140px;
+}
+
+/* HERO */
+.about-hero {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.about-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c6a46a;
+  margin-bottom: 20px;
+}
+
+.about-title {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #1a1a1a;
+}
+
+.about-title em {
+  font-style: italic;
+  font-family: "Outfit", sans-serif;
+}
+
+.about-title span {
+  color: #c6a46a;
+}
+
+/* TEXT */
+.about-text {
+  max-width: 700px;
+  margin: 0 auto 120px auto;
+  text-align: center;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* IMAGE */
+.about-image {
+  width: 60vw;
+  height: 70vh;
+  margin: 0 auto 120px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #c6a46a;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* NAV SHADER HOVER ANIM */
+
+/*  */

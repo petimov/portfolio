@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Petr Movsesjan</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://unpkg.com/@barba/core"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+</head>
+<body data-barba="wrapper">
+<header class="c-site-header o-container">
+
+  <a class="c-site-header__brand" href="/" data-barba="link" data-pointer="home" aria-label="Home">
+    <h1 class="logo">Petr&nbsp;Movsesjan</h1>
+  </a>
+
+  <a href="/o-mne.html" class="nav-link" data-barba="link">
+  <span class="nav-text">O mně</span>
+</a>
+</header>
+
+
+  <canvas id="gradient-canvas" data-transition-in></canvas>
+  <main class="c-cards" data-barba="container" data-barba-namespace="home">
+
+    <div class="c-cards__wrapper">
+
+      <!-- DUMMY (držení layoutu) -->
+      <div class="c-cards__card c-cards__card--dummy"></div>
+
+      <!-- KARTY -->
+      <a href="befit.html" class="c-cards__card" data-barba="link">
+        <img src="/images/befit_layout.jpg" class="card-media"  data-shared="media"/>
+        <div class="card-content" data-shared="content">
+            <p class="card-label">Webová aplikace</p>
+
+            <h1 class="card-title">
+            BeFit  <em>kavárna</em> a posilovna
+            </h1>
+
+            <p class="card-desc">
+            Interaktivní fitness a café web, s rozvrhem lekcí a moderním UX
+            </p>
+        </div>
+      </a>
+
+      <div class="c-cards__card">
+        <img src="https://picsum.photos/800/1200?2" />
+        <div class="card-content">
+            <p class="card-label">Prototyping</p>
+
+            <h1 class="card-title">
+            The <em>Art</em> of pattern making
+            </h1>
+
+            <p class="card-desc">
+            From sketch to garment, a complete and customized service
+            </p>
+        </div>
+      </div>
+
+      <div class="c-cards__card">
+        <img src="https://picsum.photos/800/1200?3" />
+        <div class="c-cards__content">Card 03</div>
+      </div>
+
+      <div class="c-cards__card">
+        <img src="https://picsum.photos/800/1200?4" />
+        <div class="c-cards__content">Card 04</div>
+      </div>
+
+      <div class="c-cards__card">
+        <img src="https://picsum.photos/800/1200?5" />
+        <div class="c-cards__content">Card 05</div>
+      </div>
+      <div class="c-cards__card">
+        <img src="https://picsum.photos/800/1200?3" />
+        <div class="c-cards__content">Card 06</div>
+      </div>
+
+      <div class="c-cards__card">
+        <img src="https://picsum.photos/800/1200?4" />
+        <div class="c-cards__content">Card 07</div>
+      </div>
+
+      <div class="c-cards__card">
+        <img src="https://picsum.photos/800/1200?5" />
+        <div class="c-cards__content">Card 08</div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script type="module" src="script.js"></script>
+
+</body>
+</html>
