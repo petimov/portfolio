@@ -1,6 +1,9 @@
 import { Gradient } from "./Gradient.js"
 
 
+window.addEventListener("load", () => {
+  initPreloader()
+})
 
 /* -----------------------------
    BARBA: body classes
@@ -560,5 +563,66 @@ function initProjectContent() {
     duration: 0.8,
     ease: "power2.out"
   }, "-=0.6")
+}
+// PRELAODER
+function initPreloader() {
+  const text = new SplitType(".preloader-text", { types: "chars" })
+
+  const tl = gsap.timeline()
+
+  // 👉 TEXT REVEAL (luxury stagger)
+  tl.to(text.chars, {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    duration: 1.2,
+    ease: "power3.out",
+    stagger: 0.03
+  })
+
+  // 👉 slight upscale feel
+  .to(".preloader-text", {
+    letterSpacing: "0.2em",
+    duration: 1,
+    ease: "power2.out"
+  }, "-=0.8")
+
+  // 👉 HOLD (important for premium feel)
+  .to({}, { duration: 0.4 })
+
+  // 👉 CURTAIN EXIT (THIS is the magic)
+  .to(".preloader", {
+    y: "-100%",
+    duration: 1.2,
+    ease: "power4.inOut"
+  })
+
+  // 👉 CLEANUP
+  .set(".preloader", {
+    display: "none"
+  })
+
+  // 👉 TRIGGER SITE REVEAL
+  .add(() => {
+    revealSite()
+  }, "-=0.6")
+}
+
+function revealSite() {
+  // cards / hero / whatever
+  gsap.from(".c-cards__card", {
+    opacity: 0,
+    y: 80,
+    stagger: 0.06,
+    duration: 1.2,
+    ease: "power3.out"
+  })
+
+  gsap.from(".logo", {
+    opacity: 0,
+    y: -20,
+    duration: 0.8,
+    ease: "power2.out"
+  })
 }
 // 
