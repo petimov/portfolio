@@ -37,7 +37,19 @@
   display: inline-block;
   opacity: 0;
   transform: translateY(40px);
-  filter: blur(12px);
+}
+
+[data-barba="container"] {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+body.is-loaded [data-barba="container"] {
+  opacity: 1;
+}
+
+body.is-home {
+    overflow: hidden;
 }
 
 #gradient-canvas {
@@ -75,10 +87,6 @@ a {
 .logo {
   font-size: 30px;
   font-weight: 400;
-}
-
-body.is-home {
-  overflow: hidden;
 }
 
 /* CONTAINER */

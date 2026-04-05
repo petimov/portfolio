@@ -1,7 +1,9 @@
 import { Gradient } from "./Gradient.js"
 
+let homeInitialized = false
+document.body.classList.remove("is-loaded")
 
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   initPreloader()
 })
 
@@ -16,14 +18,16 @@ barba.hooks.afterEnter((data) => {
   })
 
   if (data.next.namespace === "home") {
-  initHome()
-}
-if (data.next.namespace === "about") {
+    initHome() // ✅ zpět, ale jen tady
+  }
+
+  if (data.next.namespace === "about") {
     initAbout()
   }
-if (data.next.namespace === "befit") {
-  initProjectContent()
-}
+
+  if (data.next.namespace === "befit") {
+    initProjectContent()
+  }
 })
 barba.hooks.beforeEnter((data) => {
   const ns = data.next.namespace
@@ -32,6 +36,9 @@ barba.hooks.beforeEnter((data) => {
 
   if (ns === "home") document.body.classList.add("is-home")
   if (ns === "befit") document.body.classList.add("is-project")
+    if (ns !== "home") {
+  homeInitialized = false
+}
 })
 
 function initAbout() {
@@ -173,6 +180,8 @@ const LERP = 0.08
 let cardHeight = 0
 
 function initHome() {
+    if (homeInitialized) return
+  homeInitialized = true
   cards = gsap.utils.toArray(".c-cards__card:not(.c-cards__card--dummy)")
   total = cards.length
 
@@ -242,6 +251,7 @@ function introAnimation() {
 // ==============================
 
 function render(indexValue) {
+  if (!document.body.classList.contains("is-loaded")) return
   const centerY = window.innerHeight / 2 - cardHeight / 2
 
   for (let i = 0; i < total; i++) {
@@ -298,8 +308,12 @@ card.style.transform = `
 // ==============================
 
 function animate() {
-  current += (target - current) * LERP
+  if (!document.body.classList.contains("is-loaded")) {
+    requestAnimationFrame(animate)
+    return
+  }
 
+  current += (target - current) * LERP
   render(current)
 
   requestAnimationFrame(animate)
@@ -564,65 +578,45 @@ function initProjectContent() {
     ease: "power2.out"
   }, "-=0.6")
 }
-// PRELAODER
+// INIT PRELOADER
 function initPreloader() {
   const text = new SplitType(".preloader-text", { types: "chars" })
 
   const tl = gsap.timeline()
 
-  // 👉 TEXT REVEAL (luxury stagger)
   tl.to(text.chars, {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    duration: 1.2,
-    ease: "power3.out",
-    stagger: 0.03
+    duration: 1,
+    ease: "power2.out",
+    stagger: 0.04
   })
 
-  // 👉 slight upscale feel
   .to(".preloader-text", {
-    letterSpacing: "0.2em",
-    duration: 1,
-    ease: "power2.out"
-  }, "-=0.8")
+    letterSpacing: "0.12em",
+    duration: 0.6,
+    ease: "power1.out"
+  }, "-=0.6")
 
-  // 👉 HOLD (important for premium feel)
   .to({}, { duration: 0.4 })
 
-  // 👉 CURTAIN EXIT (THIS is the magic)
   .to(".preloader", {
     y: "-100%",
-    duration: 1.2,
-    ease: "power4.inOut"
+    duration: 0.9,
+    ease: "power3.inOut"
   })
 
-  // 👉 CLEANUP
   .set(".preloader", {
     display: "none"
   })
 
-  // 👉 TRIGGER SITE REVEAL
+  // ✅ nejdřív unlock
   .add(() => {
-    revealSite()
-  }, "-=0.6")
-}
+    document.body.classList.add("is-loaded")
+  }, "-=0.2")
 
-function revealSite() {
-  // cards / hero / whatever
-  gsap.from(".c-cards__card", {
-    opacity: 0,
-    y: 80,
-    stagger: 0.06,
-    duration: 1.2,
-    ease: "power3.out"
-  })
-
-  gsap.from(".logo", {
-    opacity: 0,
-    y: -20,
-    duration: 0.8,
-    ease: "power2.out"
-  })
+  // ✅ pak init
+  .add(() => {
+    initHome()
+  }, "+=0.05")
 }
-// 
